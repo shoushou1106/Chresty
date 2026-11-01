@@ -1,0 +1,23 @@
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Foldable;
+
+namespace Chresty_Center
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .UseFoldable()
+                ;
+
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
+
+            return builder.Build();
+        }
+    }
+}

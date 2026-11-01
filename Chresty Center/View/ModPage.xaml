@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:foldable="clr-namespace:Microsoft.Maui.Controls.Foldable;assembly=Microsoft.Maui.Controls.Foldable"
+             x:Class="Chresty_Center.ModPage"
+             Title="Mod">
+    <foldable:TwoPaneView x:Name="twoPaneView">
+        <foldable:TwoPaneView.Pane1>
+            <Grid 
+                RowDefinitions="Auto, *"
+                ColumnDefinitions="Auto, Auto, *"
+                Padding="10"
+                RowSpacing="10"
+                ColumnSpacing="10">
+                
+                <Button Text="Import Mod(s)" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Refresh" Grid.Row="0" Grid.Column="1"/>
+                <SearchBar Grid.Row="0" Grid.Column="2"/>
+
+                <CollectionView Grid.Row="1" Grid.ColumnSpan="3"
+                                x:Name="ModList"
+                                EmptyView="No mods installed"
+                                SelectionMode="Single"
+                                SelectionChanged="ModList_SelectionChanged">
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}" x:Name="Name">
+                            <x:String>Skid-B-Gone</x:String>
+                            <x:String>Anti Buffs</x:String>
+                            <x:String>Super Cheated Charaters 4.5</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                Padding="10"
+                                StrokeShape="RoundRectangle 10"
+                                Margin="5">
+                                <Grid
+                                    RowDefinitions="Auto, Auto"
+                                    ColumnDefinitions="50, Auto, *, Auto"
+                                    RowSpacing="10"
+                                    ColumnSpacing="10"
+                                    Padding="5">
+                                    <Border
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        StrokeThickness="0"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Start"
+                                        StrokeShape="RoundRectangle 7.5">
+                                        <Image Source="image.jpg" Aspect="AspectFit"/>
+                                    </Border>
+                                    <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Text="{Binding .}"/>
+                                    <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Text="Author"/>
+                                    <Label Grid.RowSpan="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" Text="Version"/>
+                                    <CheckBox Grid.RowSpan="2" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="End"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
+            </Grid>
+        </foldable:TwoPaneView.Pane1>
+        <foldable:TwoPaneView.Pane2>
+            <Grid
+                RowDefinitions="Auto, Auto, Auto"
+                RowSpacing="10">
+                <Grid
+                    Grid.Row="0"
+                    Padding="10, 0"
+                    RowDefinitions="Auto, Auto"
+                    ColumnDefinitions="50, Auto, *"
+                    ColumnSpacing="10">
+                    <Image Grid.RowSpan="2" Grid.Column="0" Source="image.jpg" Aspect="AspectFit"/>
+                    <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Text="Name"/>
+                    <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Text="Author"/>
+                    <Label Grid.RowSpan="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" Text="Version"/>
+                </Grid>
+                <ScrollView
+                    Grid.Row="1"
+                    Padding="10, 0">
+                    <StackLayout>
+                        <Label Text="你说的对，但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，导引元素之力。你将扮演一位名为「旅行者」的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。"/>
+                    </StackLayout>
+                </ScrollView>
+                <Grid
+                    Grid.Row="1">
+                </Grid>
+            </Grid>
+        </foldable:TwoPaneView.Pane2>
+    </foldable:TwoPaneView>
+</ContentPage>

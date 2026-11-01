@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "Chresty (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "Chresty (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
